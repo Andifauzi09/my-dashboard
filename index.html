@@ -1,36 +1,408 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=s, initial-scale=1.0" />
-        <link rel="stylesheet" href="style.css" />
-        <link
-            href="https://fonts.googleapis.com/icon?family=Material+Icons"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=close" />
-        <title>Responsive Dashboard HTML</title>
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard Penjualan</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+</head>
+
+<body class="bg-light">
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+    <nav class="navbar navbar-dark bg-dark">
         <div class="container">
-            <aside>
-                <div class="top">
-                    <div class="logo">
-                        <img src="./images/logo.png" alt="logo">
-                        <h2>My Dash<span class="danger">board</spanv></h2>
+            <span class="navbar-brand mb-0 h1">
+                Dashboard Penjualan
+            </span>
+
+            <span class="text-white">
+                Admin
+            </span>
+        </div>
+    </nav>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+    <main class="container py-4">
+
+        <!-- Judul -->
+        <div class="mb-4">
+            <h1 class="fw-bold">Dashboard</h1>
+            <p class="text-muted">
+                Ringkasan penjualan toko hari ini.
+            </p>
+        </div>
+
+
+        <!-- =========================
+             STATISTIK
+        ========================== -->
+        <div class="row g-3 mb-4">
+
+            <!-- Total Penjualan -->
+            <div class="col-md-3">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h6 class="text-muted">Total Penjualan</h6>
+                        <h3 class="fw-bold">Rp12.580.000</h3>
+                        <p class="text-success mb-0">
+                            +12% dari bulan lalu
+                        </p>
                     </div>
-                    <div class="close" id="close-btn">
-                        <span class="material-symbols-sharp">close</span>
+                </div>
+            </div>
+
+            <!-- Total Pesanan -->
+            <div class="col-md-3">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h6 class="text-muted">Total Pesanan</h6>
+                        <h3 class="fw-bold">128</h3>
+                        <p class="text-success mb-0">
+                            +8% dari bulan lalu
+                        </p>
                     </div>
+                </div>
+            </div>
+
+            <!-- Produk Terjual -->
+            <div class="col-md-3">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h6 class="text-muted">Produk Terjual</h6>
+                        <h3 class="fw-bold">356</h3>
+                        <p class="text-success mb-0">
+                            +15% dari bulan lalu
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pelanggan -->
+            <div class="col-md-3">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h6 class="text-muted">Pelanggan</h6>
+                        <h3 class="fw-bold">89</h3>
+                        <p class="text-success mb-0">
+                            +5% dari bulan lalu
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             FILTER
+        ========================== -->
+        <div class="card shadow-sm border-0 mb-4">
+            <div class="card-body">
+
+                <div class="row align-items-center">
+
+                    <div class="col-md-6">
+                        <h5 class="fw-bold mb-1">Data Penjualan</h5>
+                        <p class="text-muted mb-md-0">
+                            Pilih periode penjualan.
+                        </p>
+                    </div>
+
+                    <div class="col-md-3 ms-auto">
+                        <select id="filterPenjualan" class="form-select">
+                            <option value="hari">Hari Ini</option>
+                            <option value="minggu">7 Hari Terakhir</option>
+                            <option value="bulan">30 Hari Terakhir</option>
+                        </select>
+                    </div>
+
                 </div>
 
-                <div class="sidebar">
-                    <a href="#">
-                        <span class="material-symbols-sharp">dashboard</span>
-                        <h3>Dashboard</h3>
-                    </a>
-                </div>
-            </aside>
+            </div>
         </div>
-    </body>
+
+
+        <!-- =========================
+             GRAFIK + PRODUK TERLARIS
+        ========================== -->
+        <div class="row g-4 mb-4">
+
+            <!-- Grafik Sederhana -->
+            <div class="col-lg-8">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+
+                        <h5 class="fw-bold">Grafik Penjualan</h5>
+                        <p class="text-muted">
+                            Contoh data penjualan selama 7 hari.
+                        </p>
+
+                        <!--
+                            Ini hanya grafik sederhana menggunakan
+                            Bootstrap Progress Bar agar mudah dipahami.
+                        -->
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Senin</span>
+                                <span>Rp1.200.000</span>
+                            </div>
+                            <div class="progress">
+                                <div
+                                    class="progress-bar"
+                                    style="width: 55%;"
+                                >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Selasa</span>
+                                <span>Rp1.500.000</span>
+                            </div>
+                            <div class="progress">
+                                <div
+                                    class="progress-bar"
+                                    style="width: 70%;"
+                                >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Rabu</span>
+                                <span>Rp900.000</span>
+                            </div>
+                            <div class="progress">
+                                <div
+                                    class="progress-bar"
+                                    style="width: 40%;"
+                                >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Kamis</span>
+                                <span>Rp1.800.000</span>
+                            </div>
+                            <div class="progress">
+                                <div
+                                    class="progress-bar"
+                                    style="width: 85%;"
+                                >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Jumat</span>
+                                <span>Rp2.000.000</span>
+                            </div>
+                            <div class="progress">
+                                <div
+                                    class="progress-bar"
+                                    style="width: 95%;"
+                                >
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Produk Terlaris -->
+            <div class="col-lg-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+
+                        <h5 class="fw-bold">Produk Terlaris</h5>
+                        <p class="text-muted">
+                            Produk dengan jumlah penjualan tertinggi.
+                        </p>
+
+                        <div class="list-group">
+
+                            <div class="list-group-item border-0 px-0">
+                                <div class="d-flex justify-content-between">
+                                    <span>1. Mouse Gaming</span>
+                                    <strong>128</strong>
+                                </div>
+                            </div>
+
+                            <div class="list-group-item border-0 px-0">
+                                <div class="d-flex justify-content-between">
+                                    <span>2. Keyboard</span>
+                                    <strong>96</strong>
+                                </div>
+                            </div>
+
+                            <div class="list-group-item border-0 px-0">
+                                <div class="d-flex justify-content-between">
+                                    <span>3. Headset</span>
+                                    <strong>74</strong>
+                                </div>
+                            </div>
+
+                            <div class="list-group-item border-0 px-0">
+                                <div class="d-flex justify-content-between">
+                                    <span>4. USB Hub</span>
+                                    <strong>58</strong>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             TABEL TRANSAKSI
+        ========================== -->
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body">
+
+                <h5 class="fw-bold">Transaksi Terbaru</h5>
+                <p class="text-muted">
+                    Daftar transaksi terbaru dari pelanggan.
+                </p>
+
+                <!--
+                    table-responsive membuat tabel
+                    bisa di-scroll pada layar kecil.
+                -->
+                <div class="table-responsive">
+
+                    <table class="table table-hover align-middle">
+
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Pelanggan</th>
+                                <th>Produk</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="transactionTable">
+
+                            <tr>
+                                <td>#TRX001</td>
+                                <td>Andi</td>
+                                <td>Mouse Gaming</td>
+                                <td>Rp250.000</td>
+                                <td>
+                                    <span class="badge text-bg-success">
+                                        Selesai
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>#TRX002</td>
+                                <td>Budi</td>
+                                <td>Keyboard</td>
+                                <td>Rp750.000</td>
+                                <td>
+                                    <span class="badge text-bg-warning">
+                                        Diproses
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>#TRX003</td>
+                                <td>Siti</td>
+                                <td>Headset</td>
+                                <td>Rp450.000</td>
+                                <td>
+                                    <span class="badge text-bg-success">
+                                        Selesai
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>#TRX004</td>
+                                <td>Rizky</td>
+                                <td>USB Hub</td>
+                                <td>Rp120.000</td>
+                                <td>
+                                    <span class="badge text-bg-info">
+                                        Dikirim
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+    <script>
+        // Ambil elemen select dari HTML
+        const filterPenjualan = document.querySelector("#filterPenjualan");
+
+        // Ketika pilihan filter berubah
+        filterPenjualan.addEventListener("change", function () {
+
+            // Ambil nilai pilihan
+            const pilihan = filterPenjualan.value;
+
+            // Contoh sederhana:
+            // Kita hanya mengubah teks judul berdasarkan filter.
+            if (pilihan === "hari") {
+                console.log("Menampilkan data hari ini");
+            }
+
+            if (pilihan === "minggu") {
+                console.log("Menampilkan data 7 hari terakhir");
+            }
+
+            if (pilihan === "bulan") {
+                console.log("Menampilkan data 30 hari terakhir");
+            }
+        });
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+
+</body>
 </html>
